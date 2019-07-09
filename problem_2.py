@@ -149,7 +149,7 @@ class RedBlackTree(object):
             node_up.parent = parent
 
         # ------------------------------------------
-        # Case 1: this is the root node
+        # Case 1: this is the root node.
         # ------------------------------------------
         if node.is_root():
             node.color = Node.BLACK
@@ -159,7 +159,7 @@ class RedBlackTree(object):
         parent = node.parent
 
         # ------------------------------------------
-        # Case 2: a black parent node
+        # Case 2: a black parent node.
         # ------------------------------------------
         if parent.color is Node.BLACK:
             return
@@ -193,7 +193,7 @@ class RedBlackTree(object):
             rotate_right(parent)
             node = node.right
 
-        # Reassign the variables after rotating
+        # Reassign the variables after rotating.
         parent = node.parent
         grandparent = node.grandparent()
 
