@@ -1,9 +1,7 @@
 # Search in a rotated sorted array #
-The solution uses a self-balancing binary tree to search a rotated sorted array of values.
+The submission contains two solutions to problem 2 (`problem_2.py` and `problem_2_alt.py`).
+
+The "main" solution uses a modified binary search. The alternative approach uses a self-balancing binary tree, and is a much more complex solution (hence the "alt" suffix).
 
 ## Efficiency ##
-The problem states that the search function must have a time-efficiency of `O(log(n))`. This rules out a standard binary tree, whose worst-case time efficiency is `O(n)`.
-
-However, searching a _self-balancing_ binary tree (or "red black" tree) has the desired time-efficiency of `O(log(n))`.
-
-The space efficiency of the solution is `O(n)`.
+The time efficiency of both solutions is `O(log(n))`. The space efficiency of the binary search approach is `O(1)`. The space efficiency of the red-black tree approach is `O(n)`.
