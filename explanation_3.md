@@ -2,7 +2,7 @@
 The solution involves two steps:
 
 1. Sort the input list, in descending order. The sort method uses "merge sort" algorithm, to comply with the expected time complexity of `O(n log(n))`.
-2. Loop through the sorted list, assigning elements with an odd index to `number_one`, and elements with an even index to `number_two`.
+2. Assign those elements from the sorted list with an odd index to the first number, and those with an even index to the second number.
 
 ## Why does this work? ##
 By using the largest numbers from the input list as the most significant digits in the generated numbers, we are guaranteed to find the largest possible numbers.
