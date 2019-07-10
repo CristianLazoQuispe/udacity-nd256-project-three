@@ -1,8 +1,4 @@
-class EmptyList(Exception):
-    pass
-
-
-class InvalidValue(Exception):
+class InvalidList(Exception):
     pass
 
 
@@ -58,26 +54,14 @@ def rearrange_digits(input_list):
     :param input_list: list
     :return: tuple
     """
-
-    if not input_list:
-        raise EmptyList
+    if len(input_list) <= 1:
+        raise InvalidList
 
     sorted_list = sort(input_list)
-    number_one = '0'
-    number_two = '0'
+    number_one_list = [str(x) for x in sorted_list[0::2] if x >= 0]
+    number_two_list = [str(x) for x in sorted_list[1::2] if x >= 0]
 
-    for index in range(len(sorted_list)):
-        if sorted_list[index] < 0:
-            raise InvalidValue
-
-        digit_string = str(sorted_list[index])
-
-        if index % 2 == 0:
-            number_one += digit_string
-        else:
-            number_two += digit_string
-
-    return int(number_one), int(number_two)
+    return int(''.join(number_one_list)), int(''.join(number_two_list))
 
 
 # ----------------------------------------------------------------------------------------------------------------------
@@ -92,16 +76,18 @@ assert rearrange_digits([4, 6, 2, 5, 9, 8]) == (964, 852)
 
 assert rearrange_digits([1, 0, 1, 0]) == (10, 10)
 assert rearrange_digits([0, 0, 0]) == (0, 0)
-assert rearrange_digits([1]) == (1, 0)
+
+# Discard any digits less than zero. You said this would never happen, Udacity.
+assert rearrange_digits([1, 2, 3, 4, -1]) == (42, 31)
 
 try:
     rearrange_digits([])
     assert False, 'Cannot rearrange digits in an empty list'
-except EmptyList:
+except InvalidList:
     assert True
 
 try:
-    rearrange_digits([1, 2, 3, 4, -1])
-    assert False, 'All digits must be in the range 0-9'
-except InvalidValue:
+    rearrange_digits([1])
+    assert False, 'The list must contain at least two digits'
+except InvalidList:
     assert True
