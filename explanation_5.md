@@ -1,5 +1,5 @@
 # Autocomplete with Tries #
-Given a "root" node, the solution recursively loops through all of the nodes, children. Whenever a "word" node is encountered, it is added to the list of suffixes.
+Given a "root" node, the solution recursively loops through all of the node's children. Whenever a "word" node is encountered, it is added to the list of suffixes.
 
 ## Efficiency ##
 ### Time efficiency ###
