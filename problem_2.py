@@ -21,9 +21,9 @@ def rotated_array_search(haystack, needle):
     def sorted_stack_contains_needle(stack, needle):
         if not stack:
             return False
-        return stack[0] <= needle and stack[-1] >= needle
+        return stack[0] <= needle <= stack[-1]
 
-    def recurse(haystack, start_index, needle):
+    def recurse(haystack, needle, start_index):
         if not haystack:
             return -1
 
@@ -38,11 +38,11 @@ def rotated_array_search(haystack, needle):
         right_stack = haystack[mid_index + 1:]
 
         if is_sorted(left_stack) and sorted_stack_contains_needle(left_stack, needle):
-            return recurse(left_stack, start_index, needle)
+            return recurse(left_stack, needle, start_index)
         else:
-            return recurse(right_stack, start_index + mid_index + 1, needle)
+            return recurse(right_stack, needle, start_index + mid_index + 1)
 
-    return recurse(haystack, 0, needle)
+    return recurse(haystack, needle, 0)
 
 
 # ----------------------------------------------------------------------------------------------------------------------
