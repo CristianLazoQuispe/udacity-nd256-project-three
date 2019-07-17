@@ -33,7 +33,7 @@ def sqrt(number):
             return recurse(candidates[0:mid_index], target)
 
     # The answer can never be more than half the target number
-    candidates = [x for x in range(1, (number // 2) + 2)]
+    candidates = [x for x in range(0, (number // 2) + 2)]
 
     # Use a binary search to find the square root
     return recurse(candidates, number)
@@ -48,5 +48,5 @@ assert 1111 == sqrt(1_234_567)
 assert 5 == sqrt(27)
 
 # Edge cases
+assert 0 == sqrt(0)
 assert None is sqrt(-1)
-assert None is sqrt(0)
