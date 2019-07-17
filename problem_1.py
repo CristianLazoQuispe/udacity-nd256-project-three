@@ -9,37 +9,34 @@ def sqrt(number):
     :return: int or None
     """
 
-    def recurse(candidates, target):
-        if not candidates:
-            return None
+    # Explicitly handle the edge-cases here
+    if number < 0:
+        return None
+    if number <= 1:
+        return number
 
-        mid_index = len(candidates) // 2
-        candidate = candidates[mid_index]
+    lowest, highest = 0, number // 2
+
+    while lowest <= highest:
+        candidate = ((highest - lowest) // 2) + lowest
         sq_candidate = candidate * candidate
 
-        if sq_candidate == target:
+        if sq_candidate == number:
             return candidate
 
-        if sq_candidate < target:
+        if sq_candidate > number:
+            highest = candidate - 1
+        else:
             # If the next largest number squared is greater than the target, return the current candidate
             sq_candidate_plus = (candidate + 1) * (candidate + 1)
-            if sq_candidate_plus > target:
+            if sq_candidate_plus > number:
                 return candidate
-            else:
-                return recurse(candidates[mid_index + 1:], target)
+            lowest = candidate + 1
 
-        # We could just do an else: here, but let's be explicit
-        if sq_candidate > target:
-            return recurse(candidates[0:mid_index], target)
-
-    # The answer can never be more than half the target number
-    candidates = [x for x in range(0, (number // 2) + 2)]
-
-    # Use a binary search to find the square root
-    return recurse(candidates, number)
+    # If we got this far, all hope is lost
+    return None
 
 
-assert 1 == sqrt(1)
 assert 2 == sqrt(4)
 assert 3 == sqrt(9)
 assert 1111 == sqrt(1_234_567)
@@ -48,5 +45,6 @@ assert 1111 == sqrt(1_234_567)
 assert 5 == sqrt(27)
 
 # Edge cases
-assert 0 == sqrt(0)
 assert None is sqrt(-1)
+assert 0 == sqrt(0)
+assert 1 == sqrt(1)
