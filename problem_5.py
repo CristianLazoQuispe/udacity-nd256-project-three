@@ -6,11 +6,10 @@ class TrieNode(object):
         self.children = collections.defaultdict(TrieNode)
         self.is_word = False
 
-    def suffixes(self, prefix=''):
+    def suffixes(self):
         """
         Find all of the suffixes for the given node
 
-        :param prefix: string Prepend all suffixes with this prefix, for reasons unclear
         :return: list
         """
 
@@ -25,7 +24,7 @@ class TrieNode(object):
 
             return suffixes
 
-        return recurse(self.children, prefix)
+        return recurse(self.children, '')
 
 
 class Trie(object):
@@ -104,7 +103,7 @@ node = autocomplete.find('a')
 assert node.suffixes() == ['nt', 'nthology', 'ntagonist', 'ntonym']
 
 node = autocomplete.find('ant')
-assert node.suffixes('ont') == ['onthology', 'ontagonist', 'ontonym']
+assert node.suffixes() == ['hology', 'agonist', 'onym']
 
 node = autocomplete.find('anto')
 assert node.suffixes() == ['nym']
