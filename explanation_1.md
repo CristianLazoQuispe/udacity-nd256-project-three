@@ -11,4 +11,9 @@ The binary search is implemented using a recursive function. For each recursion,
 - If the result is less than the target value, we perform an additional check, to determine whether `(candidate + 1) * (candidate + 1)` is _more than_ the target value. If it is, the square root must lay between `candidate` and `candidate + 1`. In this situation, we return `candidate`. If it is not, we discard the top half of the candidates list, and recursively call the function with the new candidates.
 
 ## Efficiency ##
-The time efficiency of binary search (and therefore this solution) is `O(log(n))`. The space efficiency of this solution is `O(n / 2)`.
+
+### Time efficiency ###
+The time efficiency of binary search (and therefore this solution) is `O(log(n))`.
+
+### Space efficiency ###
+The space efficiency of this solution is `O(n / 2)`.

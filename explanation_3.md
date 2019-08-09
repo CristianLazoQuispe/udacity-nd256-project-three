@@ -21,4 +21,9 @@ number_two = 42
 ```
 
 ## Efficiency ##
-The time efficiency of the merge sort algorithm is `O(n log(n))`. The space efficiency is `O(n)`.
+
+### Time efficiency ###
+The time efficiency of the merge sort algorithm is `O(n log(n))`.
+
+### Space efficiency ###
+The space efficiency is `O(n)`.
