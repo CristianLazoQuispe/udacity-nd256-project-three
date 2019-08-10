@@ -10,3 +10,5 @@ The time efficiency of both solutions is `O(log(n))`.
 
 ### Space efficiency ###
 The space efficiency of the binary search approach is `O(log(n))`. The space efficiency of the red-black tree approach is `O(n)`.
+
+Both solutions use recursion, which requires space on the call stack for each recursive function call.
