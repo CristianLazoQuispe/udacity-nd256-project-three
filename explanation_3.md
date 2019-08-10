@@ -27,3 +27,7 @@ The time efficiency of the merge sort algorithm is `O(n log(n))`.
 
 ### Space efficiency ###
 The space efficiency is `O(n)`.
+
+The solution first splits the original list, of length `n`, into two lists. The combined length of the two lists is `n`. It then uses the merge sort algorithm to combine the two lists into a single sorted list, again of length `n`.
+
+Finally, two output strings are created from the sorted list. The combined length of the output strings is `n` characters.
