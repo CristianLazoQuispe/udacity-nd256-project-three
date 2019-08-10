@@ -1,35 +1,35 @@
-def sqrt(number):
+def sqrt(target):
     """
     Find the square root of the given number
 
     If the square root is not an integer, the next lowest integer is returned. If the square root cannot be determined,
     None is returned.
 
-    :param number: The square
+    :param target: The square
     :return: int or None
     """
 
     # Explicitly handle the edge-cases here
-    if number < 0:
+    if target < 0:
         return None
-    if number <= 1:
-        return number
+    if target <= 1:
+        return target
 
-    lowest, highest = 0, number // 2
+    lowest, highest = 2, target // 2
 
     while lowest <= highest:
         candidate = ((highest - lowest) // 2) + lowest
         sq_candidate = candidate * candidate
 
-        if sq_candidate == number:
+        if sq_candidate == target:
             return candidate
 
-        if sq_candidate > number:
+        if sq_candidate > target:
             highest = candidate - 1
         else:
             # If the next largest number squared is greater than the target, return the current candidate
             sq_candidate_plus = (candidate + 1) * (candidate + 1)
-            if sq_candidate_plus > number:
+            if sq_candidate_plus > target:
                 return candidate
             lowest = candidate + 1
 
