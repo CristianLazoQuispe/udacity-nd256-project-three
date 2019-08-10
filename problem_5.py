@@ -8,7 +8,7 @@ class TrieNode(object):
 
     def suffixes(self):
         """
-        Find all of the suffixes for the given node
+        Find all of the node's suffixes
 
         :return: list
         """
@@ -49,18 +49,14 @@ class Trie(object):
         :param letters: string
         :return: TrieNode|None
         """
+        node = self.root
 
-        def recurse(node, letters):
-            if not letters:
-                return node
-
-            head, *tail = letters
-
-            if head not in node.children:
+        for letter in letters:
+            if letter not in node.children:
                 return None
-            return recurse(node.children[head], tail)
+            node = node.children[letter]
 
-        return recurse(self.root, letters)
+        return node
 
     def exists(self, word):
         """
