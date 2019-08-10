@@ -2,7 +2,7 @@
 The solution uses the binary search algorithm to find the square root of a given number from a list of potential candidates.
 
 ## Details ##
-Given a target number, `target`, the `sqrt` function first checks for edges cases, whether `target` is 0 or 1.
+Given a target number, `target`, the `sqrt` function first checks for the edges cases where `target` is 0 or 1.
 
 The function then determines the lowest possible square root, and the highest possible square root. It assigns these values to the variables `lowest` and `highest`.
 
